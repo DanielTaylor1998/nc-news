@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { getArticles } from "../utils/api";
 import "./Articlelist.css"
 
@@ -23,12 +24,12 @@ export const Articlelist = () => {
         <div>
             {articles.map((article) => {
                 return (
-                    <div>
-                    <div className="Article-Card">
-                        <h1>{article.title}</h1>
-                        <p>{article.body}</p>
-                    </div>
-                    <br />
+                    <div key={article.article_id}>
+                        <div className="Article-Card">
+                            <Link to={`/Articles/${article.article_id}`}><h1>{article.title}</h1></Link>
+                            <p>{article.body}</p>
+                        </div>
+                        <br />
                     </div>
                 )
             })}
