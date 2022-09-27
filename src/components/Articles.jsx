@@ -9,6 +9,7 @@ export const Articles = () => {
     const [topic, setTopic] = useState('')
     const [loading, Isloading] = useState(true)
 
+
     useEffect(() => {
         getTopics()
             .then((topics) => {
@@ -27,13 +28,20 @@ export const Articles = () => {
             <div className="List">
                 <div className="col"></div>
                 <div className="Content">
-                    {topics.map((topic) => {
-                        return (
-                            <div key={topic.slug} className="topics">
-                                <button className="button" onClick={setTopic(topic.slug)}>{topic.slug}</button>
-                            </div>
-                        )
-                    })}
+                    <div className="topics">
+                        {topics.map((topic) => {
+                            return (
+
+                                <button key={topic.slug} className="button" onClick={() => {
+                                    setTopic(topic.slug)
+                                }}>{topic.slug}</button>
+
+                            )
+                        })}
+                        <button className="button" onClick={() => {
+                            setTopic('')
+                        }}>All</button>
+                    </div>
                     <Articlelist topic={topic} />
                 </div>
                 <div className="col"></div>

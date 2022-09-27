@@ -10,3 +10,13 @@
     flex: 2;
 }
 
+.topics {
+    display: flex;
+    flex-direction: row;
+    padding-bottom: 20px;
+}
+
+.button {
+    flex: 1;
+    background-color: #998DA0;
+}

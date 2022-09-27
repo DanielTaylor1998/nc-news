@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { getArticles } from "../utils/api";
 import "./Articlelist.css"
 
-export const Articlelist = () => {
+export const Articlelist = (topic) => {
 
     const [articles, setArticles] = useState([])
     const [loading, Isloading] = useState(true)
@@ -15,7 +15,15 @@ export const Articlelist = () => {
                 Isloading(false)
             })
     }, [])
-    
+
+    useEffect(() => {
+        getArticles(undefined, topic.topic)
+        .then((articles) => {
+            setArticles(articles);
+            Isloading(false)
+        })
+    }, [topic])
+
 
 
     if (loading) {
