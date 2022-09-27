@@ -1,0 +1,8 @@
+.Article-Card {
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    background-color: #0091AD;
+    border: 1px solid #000000;
+    border-radius: 15px;
+}
