@@ -10,3 +10,10 @@ export const getArticles = (author, topic, sort_by, order) => {
         return res.data
     })
 }
+
+export const getArticle = (articleId) => {
+    return newsApi.get(`/articles/${articleId}`)
+    .then((res) => {
+        return res.data
+    })
+}

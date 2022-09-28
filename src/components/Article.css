@@ -1,0 +1,13 @@
+.article {
+    display: flex;
+}
+
+.col {
+    flex:1
+}
+
+.Content {
+    flex: 2;
+    flex-grow: 4;
+    justify-content: center;
+}
