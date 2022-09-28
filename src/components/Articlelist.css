@@ -5,10 +5,11 @@
     background-color: #0091AD;
     border: 1px solid #000000;
     border-radius: 15px;
+    text-size-adjust: auto;
 }
 
+
 .title {
-    font-size: 1vw;
     color: #000000;
     font-weight: normal;
     text-decoration: none;
