@@ -7,7 +7,8 @@
 }
 
 .Content {
-    flex: 2;
+    flex-grow: 3;
+    flex-basis: 2;
 }
 
 .topics {
@@ -19,4 +20,10 @@
 .button {
     flex: 1;
     background-color: #998DA0;
+}
+
+.buttonLink {
+    color: #000000;
+    font-weight: normal;
+    text-decoration: none;
 }

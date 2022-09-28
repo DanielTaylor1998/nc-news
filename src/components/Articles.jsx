@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { getTopics } from "../utils/api";
 import { Articlelist } from "./Articlelist";
 import "./Articles.css"
 
 export const Articles = () => {
+
+    const navigate = useNavigate()
 
     const search = useLocation().search;
     const qTopic = new URLSearchParams(search).get('topic')
@@ -22,7 +24,8 @@ export const Articles = () => {
             })
             if (qTopic) {
                 setTopic(qTopic)
-            } else {
+            } else{
+                setTopic('')
             }
     }, [qTopic])
 
@@ -42,13 +45,13 @@ export const Articles = () => {
                             return (
 
                                 <button key={topic.slug} className="button" onClick={() => {
-                                    setTopic(topic.slug)
+                                    navigate(`/Articles?topic=${topic.slug}`)
                                 }}>{topic.slug}</button>
 
                             )
                         })}
                         <button className="button" onClick={() => {
-                            setTopic('')
+                            navigate(`/Articles`)
                         }}>All</button>
                     </div>
                     <Articlelist topic={topic} />

@@ -9,19 +9,12 @@ export const Articlelist = (topic) => {
     const [isLoading, SetIsLoading] = useState(true)
 
     useEffect(() => {
-        getArticles()
+        getArticles(topic.topic)
             .then((articles) => {
                 setArticles(articles);
                 SetIsLoading(false)
             })
 
-        if (topic) {
-            getArticles(topic.topic)
-        .then((articles) => {
-            setArticles(articles);
-            SetIsLoading(false)
-        })
-        }
     }, [topic])
 
 
