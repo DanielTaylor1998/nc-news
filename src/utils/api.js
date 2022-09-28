@@ -18,8 +18,8 @@ export const getArticle = (articleId) => {
     })
 }
 
-export const patchArticle = (articleId) => {
-    return newsApi.patch(`/articles/${articleId}`)
+export const patchArticle = (articleId, body) => {
+    return newsApi.patch(`/articles/${articleId}`, body)
     .then((res) => {
         return res.data
     })
