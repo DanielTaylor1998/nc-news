@@ -8,5 +8,6 @@
 
 .Content {
     flex: 2;
+    flex-grow: 4;
     justify-content: center;
 }
