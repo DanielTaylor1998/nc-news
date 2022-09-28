@@ -21,13 +21,20 @@ export const Article = () => {
         return <p>Loading...</p>
     }
 
+    const vote = (article_id) => {
+        
+    }
+
     return (
         <div className="article">
             <div className="col"></div>
             
             <div className="Content">
                 <h2>{currentArticle.author}</h2>
-                <h1>{currentArticle.title}</h1>
+                <div>
+                    <h1>{currentArticle.title}</h1>
+                    <button>{currentArticle.votes}</button>
+                </div>
                 <br />
                 <p>{currentArticle.body}</p>
                 <></>
