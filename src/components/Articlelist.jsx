@@ -6,27 +6,26 @@ import "./Articlelist.css"
 export const Articlelist = (topic) => {
 
     const [articles, setArticles] = useState([])
-    const [loading, Isloading] = useState(true)
+    const [isLoading, SetIsLoading] = useState(true)
 
     useEffect(() => {
         getArticles()
             .then((articles) => {
                 setArticles(articles);
-                Isloading(false)
+                SetIsLoading(false)
             })
-    }, [])
 
-    useEffect(() => {
-        getArticles(undefined, topic.topic)
+        if (topic) {
+            getArticles(topic.topic)
         .then((articles) => {
             setArticles(articles);
-            Isloading(false)
+            SetIsLoading(false)
         })
+        }
     }, [topic])
 
 
-
-    if (loading) {
+    if (isLoading) {
         return <p>Loading...</p>
     }
 

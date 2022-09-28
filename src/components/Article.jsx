@@ -7,17 +7,17 @@ export const Article = () => {
 
     const { article_id } = useParams();
     const [currentArticle, setCurrArticle] = useState({})
-    const [loading, Isloading] = useState(true)
+    const [isLoading, setIsLoading] = useState(true)
 
     useEffect(() => {
         getArticle(article_id)
             .then((article) => {
                 setCurrArticle(article);
-                Isloading(false);
+                setIsLoading(false);
             })
     }, [])
 
-    if (loading) {
+    if (isLoading) {
         return <p>Loading...</p>
     }
 

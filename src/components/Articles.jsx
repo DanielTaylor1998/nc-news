@@ -1,27 +1,36 @@
 import React, { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
 import { getTopics } from "../utils/api";
 import { Articlelist } from "./Articlelist";
 import "./Articles.css"
 
 export const Articles = () => {
 
+    const search = useLocation().search;
+    const qTopic = new URLSearchParams(search).get('topic')
+
     const [topics, setTopics] = useState([])
     const [topic, setTopic] = useState('')
-    const [loading, Isloading] = useState(true)
+    const [isLoading, SetIsLoading] = useState(true)
 
 
     useEffect(() => {
         getTopics()
             .then((topics) => {
                 setTopics(topics)
-                Isloading(false)
+                SetIsLoading(false)
             })
-    }, [])
+            if (qTopic) {
+                setTopic(qTopic)
+            } else {
+            }
+    }, [qTopic])
 
 
-    if (loading) {
+    if (isLoading) {
         return <p>Loading...</p>
     }
+
 
     return (
         <div>
