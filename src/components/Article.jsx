@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getArticle, patchArticle } from "../utils/api";
 import "./Article.css"
+import { Comments } from "./comments";
 
 export const Article = () => {
 
@@ -60,7 +61,9 @@ export const Article = () => {
                 </div>
                 <br />
                 <p>{currentArticle.body}</p>
-                <></>
+                <div>
+                    <Comments />
+                </div>
             </div>
 
             <div className="col"></div>
