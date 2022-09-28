@@ -35,8 +35,7 @@ export const Articlelist = (topic) => {
                 return (
                     <div key={article.article_id}>
                         <div className="Article-Card">
-                            <Link to={`/Articles/${article.article_id}`}><h1>{article.title}</h1></Link>
-                            <p>{article.body}</p>
+                            <Link className="title" to={`/Articles/${article.article_id}`}><h1>{article.title}</h1></Link>
                         </div>
                         <br />
                     </div>
