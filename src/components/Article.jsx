@@ -62,7 +62,7 @@ export const Article = () => {
                 <br />
                 <p>{currentArticle.body}</p>
                 <div>
-                    <Comments />
+                    <Comments article_id={currentArticle.article_id}/>
                 </div>
             </div>
 
