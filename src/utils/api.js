@@ -18,6 +18,13 @@ export const getArticle = (articleId) => {
     })
 }
 
+export const patchArticle = (articleId, body) => {
+    return newsApi.patch(`/articles/${articleId}`, body)
+    .then((res) => {
+        return res.data
+    })
+}
+
 export const getTopics = () => {
     return newsApi.get('/topics')
     .then((res) => {
