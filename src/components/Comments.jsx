@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { getComments } from "../utils/api";
+import { Commentform } from "./Commentform";
 import "./comments.css"
 
 export const Comments = (article_id) => {
@@ -13,19 +14,27 @@ export const Comments = (article_id) => {
     useEffect(() => {
         getComments(article_id.article_id)
             .then((comments) => {
-                setComments(comments)
+                setComments(comments.reverse())
                 setIsLoading(false)
-                console.log(comments)
             })
-    }, [])
+            .catch((err) => {
+                console.log(err)
+                setError(true)
+            }) 
+    }, [comments, article_id.article_id])
 
 
     if (isLoading) {
         return <p>Loading...</p>
     }
 
+    if (error) {
+        return <h1>Oops Something Went Wrong</h1>
+    }
+
     return (
         <div>
+            <Commentform article_id={article_id.article_id} />
             <h1>Comments</h1>
             {comments.map((comment) => {
                 return (
