@@ -6,8 +6,13 @@ import { Home } from './components/Home';
 import { Nav } from './components/Nav';
 import { Users } from './components/Users';
 import { Article } from './components/Article'
+import { useContext } from 'react';
+import { UserContext } from './contexts/user';
 
 function App() {
+
+  const value = useContext(UserContext);
+
   return (
     <div className="App">
       <Header/>
