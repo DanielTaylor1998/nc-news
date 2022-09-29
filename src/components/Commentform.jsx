@@ -58,7 +58,7 @@ export const Commentform = ({ article_id }) => {
             <div hidden={isHidden}>
                 <label>
                     Please enter you comment:
-
+                    <br />
                     <textarea className="textBox" onChange={handleChange}></textarea>
                     <br />
                     <button disabled={isDisabled} onClick={() => { comment(article_id) }}>Sumbit</button>
