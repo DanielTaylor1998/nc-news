@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getArticle, patchArticle } from "../utils/api";
 import "./Article.css"
-import { Comments } from "./comments";
+import { Comments } from "./Comments";
 
 export const Article = () => {
 

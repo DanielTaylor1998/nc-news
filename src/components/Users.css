@@ -1,0 +1,36 @@
+.users {
+    display: flex;
+    flex-direction: row;
+}
+
+.col {
+    flex:1
+}
+
+.content {
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    flex: 2;
+    flex-grow: 3;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.user-list {
+    padding: 10px;
+}
+
+.userCard {
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    width: 300px;
+    height: 300px;
+    border-style: solid;
+}
+
+.profile-pic {
+    max-width: inherit;
+    max-height: 160px;
+}
