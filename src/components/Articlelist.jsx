@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { getArticles } from "../utils/api";
 import "./Articlelist.css"
 
 export const Articlelist = (topic) => {
+
+    const navigate = useNavigate()
 
     const [articles, setArticles] = useState([])
     const [isLoading, SetIsLoading] = useState(true)
@@ -27,8 +29,8 @@ export const Articlelist = (topic) => {
             {articles.map((article) => {
                 return (
                     <div key={article.article_id}>
-                        <div className="Article-Card">
-                            <Link className="title" to={`/Articles/${article.article_id}`}><h1>{article.title}</h1></Link>
+                        <div className="Article-Card" onClick={() => {navigate(`/Articles/${article.article_id}`)}}>
+                            <h1 className="title">{article.title}</h1>
                         </div>
                         <br />
                     </div>
