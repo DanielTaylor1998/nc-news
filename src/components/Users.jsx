@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
+import { UserContext } from "../contexts/user";
 import { getUsers } from "../utils/api";
 import "./Users.css"
 
@@ -6,8 +7,7 @@ export const Users = () => {
 
     const [users, setUsers] = useState([])
     const [isLoading, setIsLoading] = useState(true)
-
-
+    const { setLoggedInUser } = useContext(UserContext)
 
     useEffect(() => {
         getUsers()
@@ -32,7 +32,7 @@ export const Users = () => {
                                 <h1>{user.username}</h1>
                                 <img className="profile-pic" src={user.avatar_url} />
                                 <br />
-                                <button>Log In !</button>
+                                <button onClick={() => setLoggedInUser(user)}>Log In !</button>
                             </div>
                         </div>
 
