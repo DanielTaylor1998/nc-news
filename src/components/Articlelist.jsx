@@ -66,7 +66,7 @@ export const Articlelist = ({ topics }) => {
                     setParams({})
                 }}>All</button>  
             </div>
-            <h3> Articles sorted by {params ? params.sort_by === "comment_count" ? "Number of comments" : params.sort_by : "date"} in {orderBy === "ASC" ? "descending" : "asecding"} order</h3>
+            <h3> Articles sorted by {params ? params.sort_by === "comment_count" ? "Number of comments" : params.sort_by : "date"} in {orderBy === "ASC" ? "descending" : "asecending"} order</h3>
             <br />
             <button onClick={() => { sort("date") }}>Sort By Date</button>
             <button onClick={() => { sort("votes") }}>Sort By Votes</button>
