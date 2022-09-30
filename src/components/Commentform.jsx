@@ -59,7 +59,7 @@ export const Commentform = ({ article_id }) => {
                     <br />
                     <textarea className="textBox" onChange={handleChange}></textarea>
                     <br />
-                    <button disabled={isDisabled} onClick={() => { comment(article_id) }}>Sumbit</button>
+                    <button disabled={isDisabled} onClick={() => { comment(article_id) }}>Submit</button>
                     {text.length === 0 ? <p> Please fill in the text box !</p> : null}
                     {error ? <p>There was an issue adding comment, please try again later !</p> : null}
                 </label>
