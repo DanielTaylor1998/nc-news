@@ -7,6 +7,8 @@
 }
 
 .Content {
+    border-style: solid;
+    padding: 12px;
     flex-grow: 3;
     flex-basis: 2;
 }
