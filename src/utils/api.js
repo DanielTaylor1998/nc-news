@@ -40,7 +40,7 @@ export const postComment = (articleId, body) => {
 }
 
 export const deleteComment = (commentId) => {
-    return newsApi.delete(`/comments/:comment_id`)
+    return newsApi.delete(`/comments/${commentId}`)
         .then((res) => {
             return res.data
         })

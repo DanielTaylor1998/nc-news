@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { UserContext } from "../contexts/user";
-import { getComments } from "../utils/api";
+import { deleteComment, getComments } from "../utils/api";
 import { Commentform } from "./Commentform";
 import "./comments.css"
 
@@ -27,8 +27,19 @@ export const Comments = (article_id) => {
     }, [comments, article_id.article_id])
 
 
-    const del = () => {
+    const del = (comment_id) => {
 
+
+        setIsDisabled(true)
+
+        deleteComment(comment_id)
+            .then(() => {
+                setIsDisabled(false)
+            })
+            .catch((err) => {
+                console.log(err)
+                setError(true)
+            })
     }
 
     if (isLoading) {
@@ -49,7 +60,7 @@ export const Comments = (article_id) => {
                         <div className="commentBody">
                             <p>{comment.body}</p>
                             <h3>{comment.author}</h3>
-                            {loggedInUser.username === comment.author ? <button disabled={isDisabled}>Delete !</button> : null}
+                            {loggedInUser.username === comment.author ? <button disabled={isDisabled} onClick={() => {del(comment.comment_id)}}>Delete !</button> : null}
                         </div>
                         <br />
                     </div>
