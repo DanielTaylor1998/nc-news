@@ -57,7 +57,7 @@ export const Commentform = ({ article_id }) => {
                 <label>
                     Please enter you comment:
                     <br />
-                    <textarea className="textBox" onChange={handleChange}></textarea>
+                    <textarea className="textBox" onChange={handleChange} onFocus={(e) => {e.target.value=""}}></textarea>
                     <br />
                     <button disabled={isDisabled} onClick={() => { comment(article_id) }}>Submit</button>
                     {text.length === 0 ? <p> Please fill in the text box !</p> : null}
