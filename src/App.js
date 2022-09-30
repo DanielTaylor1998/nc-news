@@ -9,6 +9,7 @@ import { Article } from './components/Article'
 import { useContext } from 'react';
 import { UserContext } from './contexts/user';
 import { User } from './components/User';
+import { Error } from './components/Error';
 
 function App() {
 
@@ -25,6 +26,7 @@ function App() {
         <Route path="/Articles/:article_id" element={<Article />}/>
         <Route path="/Users" element={<Users />}/>
         <Route path="/User" element={<User />}/>
+        <Route path="*" element={<Error />}/>
       </Routes>
     </div>
   );

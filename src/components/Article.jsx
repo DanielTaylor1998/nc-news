@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { getArticle, patchArticle } from "../utils/api";
 import "./Article.css"
 import { Comments } from "./Comments";
 
 export const Article = () => {
+
+    const navigate = useNavigate()
 
     const { article_id } = useParams();
     const [currentArticle, setCurrArticle] = useState({})
@@ -20,11 +22,16 @@ export const Article = () => {
                 setVotes(article.votes);
                 setIsLoading(false);
             })
+            .catch((err) => {
+                console.log(err)
+                navigate("*")
+            })
     }, [article_id])
 
     if (isLoading) {
         return <p>Loading...</p>
     }
+    
 
     const vote = (article_id) => {
 
