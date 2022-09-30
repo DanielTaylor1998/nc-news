@@ -9,16 +9,40 @@ export const Articlelist = ({ topics }) => {
     const navigate = useNavigate()
     const [articles, setArticles] = useState([])
     const [isLoading, SetIsLoading] = useState(true)
-    const [searchParams, setSearchParams] = useSearchParams();
+    const [params, setParams] = useState();
+    const [orderBy, setOrderBy] = useState('ASC')
+    const [searchParams ,setSearchParams] = useSearchParams();
 
     useEffect(() => {
-        getArticles(searchParams)
+        getArticles(params)
             .then((articles) => {
                 setArticles(articles);
                 SetIsLoading(false)
+                setSearchParams(params)
             })
 
-    }, [searchParams])
+    }, [params])
+
+
+    const sort = (param) => {
+
+        setParams((currSearchParams) => {
+            return {...currSearchParams, sort_by : param}
+        })
+    }
+
+    const order = (param) => {
+
+        if(param !== "ASC"){
+            setOrderBy("ASC")
+        } else {
+            setOrderBy("DESC")
+        }
+
+        setParams((currSearchParams) => {
+            return {...currSearchParams, order : param}
+        })
+    }
 
 
     if (isLoading) {
@@ -32,22 +56,26 @@ export const Articlelist = ({ topics }) => {
                     return (
 
                         <button key={topic.slug} className="button" onClick={() => {
-                            setSearchParams({ topic: topic.slug })
+                            setParams({ topic : topic.slug })
+                            setOrderBy('ASC')
                         }}>{topic.slug}</button>
 
                     )
                 })}
                 <button className="button" onClick={() => {
-                    setSearchParams({})
+                    setParams({})
                 }}>All</button>
-                <br />
-                <button >Sort By</button>
-                <br />
 
             </div>
+            <br />
+            <button onClick={() => { sort("created_at") }}>Sort By Date</button>
+            <button onClick={() => { sort("votes") }}>Sort By Votes</button>
+            <button onClick={() => { sort("comment_count") }}>Sort By No. Comment</button>
+            <button onClick={() => { order(orderBy)}}>Order By:{orderBy}</button>
             {articles.map((article) => {
                 return (
                     <div key={article.article_id}>
+                        <br />
                         <div className="Article-Card" onClick={() => { navigate(`/Articles/${article.article_id}`) }}>
                             <h1 className="title">{article.title}</h1>
                         </div>
