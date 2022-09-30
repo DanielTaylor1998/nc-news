@@ -24,11 +24,10 @@ export const Articles = () => {
     return (
         <div>
             <div className="List">
-                <div className="col"></div>
                 <div className="Content">
                     <Articlelist topics={topics}/>
                 </div>
-                <div className="col"></div>
+                
             </div>
         </div>
     )

@@ -19,6 +19,7 @@ function App() {
     <div className="App">
       <Header/>
       <Nav />
+      <div className="col"></div>
       <Routes>
         <Route path="/" element={<Home />}/>
         <Route path="/Articles" element={<Articles />}/>
@@ -28,6 +29,7 @@ function App() {
         <Route path="/User" element={<User />}/>
         <Route path="*" element={<Error />}/>
       </Routes>
+      <div className="col"></div>
     </div>
   );
 }

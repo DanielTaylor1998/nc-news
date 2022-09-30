@@ -3,10 +3,6 @@
     flex-direction: row;
 }
 
-.col {
-    flex:1
-}
-
 .content {
     text-align: center;
     justify-content: center;

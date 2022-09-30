@@ -4,6 +4,11 @@
   align-items: center;
 }
 
+.col {
+  flex:1
+}
+
+
 @media screen and (max-width: 450px){
   * {
       font-size: 3.4vw;

@@ -71,16 +71,18 @@ export const Articlelist = ({ topics }) => {
             <div className="listHeader">
                 <div className="sortDesc">
                     <h3 className="text"> Articles sorted by :</h3>
-                    <h3 className="sortText">{params ? params.sort_by === "comment_count" ? "Number of comments" : params.sort_by : "date"}</h3>
+                    <h3 className="sortText">{params ? params.sort_by !== undefined ? params.sort_by === "comment_count" ? "Number of comments" : params.sort_by : "date" : "date"}</h3>
                     <h3 className="text">in {orderBy === "ASC" ? "descending" : "asecending"} order</h3>
                 </div>
 
                 <br />
                 <div className="buttonsList">
-                    <button className="buttons" onClick={() => { sort("date") }}>Sort By Date</button>
-                    <button className="buttons" onClick={() => { sort("votes") }}>Sort By Votes</button>
-                    <button className="buttons" onClick={() => { sort("comment_count") }}>Sort By No. Comment</button>
-                    <button className="buttons" onClick={() => { order(orderBy) }}>Order By:{orderBy}</button>
+                    <div className="sortbuttons">
+                        <button className="buttons" onClick={() => { sort("date") }}>Sort By Date</button>
+                        <button className="buttons" onClick={() => { sort("votes") }}>Sort By Votes</button>
+                        <button className="buttons" onClick={() => { sort("comment_count") }}>Sort By No. Comment</button>
+                    </div>
+                    <button className="orderButton" onClick={() => { order(orderBy) }}>Order By:{orderBy}</button>
                 </div>
             </div>
 
