@@ -39,6 +39,13 @@ export const postComment = (articleId, body) => {
         })
 }
 
+export const deleteComment = (commentId) => {
+    return newsApi.delete(`/comments/:comment_id`)
+        .then((res) => {
+            return res.data
+        })
+}
+
 export const getUsers = () => {
     return newsApi.get("/users")
     .then((res) => {
