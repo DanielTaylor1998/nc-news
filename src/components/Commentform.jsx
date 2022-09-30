@@ -26,13 +26,12 @@ export const Commentform = ({ article_id }) => {
 
             postComment(article_id, body)
                 .then((comment) => {
-                    console.log(comment, "new comment !")
                     setIsHidden(true)
                     setIsDisabled(false)
                     setHideBttn(false)
+                    setText("")
                 })
                 .catch((err) => {
-                    console.log(err)
                     setError(true)
                 })
         }
@@ -59,9 +58,9 @@ export const Commentform = ({ article_id }) => {
                 <label>
                     Please enter you comment:
                     <br />
-                    <textarea className="textBox" onChange={handleChange}></textarea>
+                    <textarea className="textBox" onChange={handleChange} value={text}></textarea>
                     <br />
-                    <button disabled={isDisabled} onClick={() => { comment(article_id) }}>Sumbit</button>
+                    <button disabled={isDisabled} onClick={() => { comment(article_id) }}>Submit</button>
                     {text.length === 0 ? <p> Please fill in the text box !</p> : null}
                     {error ? <p>There was an issue adding comment, please try again later !</p> : null}
                 </label>
