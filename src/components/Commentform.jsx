@@ -26,13 +26,11 @@ export const Commentform = ({ article_id }) => {
 
             postComment(article_id, body)
                 .then((comment) => {
-                    console.log(comment, "new comment !")
                     setIsHidden(true)
                     setIsDisabled(false)
                     setHideBttn(false)
                 })
                 .catch((err) => {
-                    console.log(err)
                     setError(true)
                 })
         }

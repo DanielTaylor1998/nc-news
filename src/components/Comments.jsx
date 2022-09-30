@@ -18,7 +18,6 @@ export const Comments = (article_id) => {
                 setIsLoading(false)
             })
             .catch((err) => {
-                console.log(err)
                 setError(true)
             }) 
     }, [comments, article_id.article_id])
