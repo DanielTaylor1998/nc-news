@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { UserContext } from "../contexts/user";
 import { getUsers } from "../utils/api";
 import "./Users.css"
@@ -9,6 +10,8 @@ export const Users = () => {
     const [isLoading, setIsLoading] = useState(true)
     const { setLoggedInUser } = useContext(UserContext)
 
+    const navigate = useNavigate()
+
     useEffect(() => {
         getUsers()
             .then((users) => {
@@ -16,6 +19,11 @@ export const Users = () => {
                 setIsLoading(false)
             })
     }, [])
+
+    const logIn = (user) => {
+        setLoggedInUser(user)
+        navigate("/User")
+    }
 
     if (isLoading) {
         return <h1>Loading...</h1>
@@ -30,9 +38,9 @@ export const Users = () => {
                         <div className="user-list" key={user.name}>
                             <div className="userCard">
                                 <h1>{user.username}</h1>
-                                <img className="profile-pic" src={user.avatar_url} />
+                                <img className="profile-pic" src={user.avatar_url} alt={"This is your profile pic"}/>
                                 <br />
-                                <button onClick={() => setLoggedInUser(user)}>Log In !</button>
+                                <button onClick={() => logIn(user)}>Log In !</button>
                             </div>
                         </div>
 
