@@ -45,14 +45,11 @@ export const Comments = (article_id) => {
         return <p>Loading...</p>
     }
 
-    if (error) {
-        return <h1>Oops Something Went Wrong</h1>
-    }
-
     return (
         <div>
             <Commentform article_id={article_id.article_id} />
             <h1>Comments</h1>
+            {error ? <h3>There was an error fetching new comments.. Please try again later !</h3> : null}
             {comments.map((comment) => {
                 return (
                     <div className="comment" key={comment.comment_id}>
