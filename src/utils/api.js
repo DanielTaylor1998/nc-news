@@ -32,6 +32,20 @@ export const getComments = (articleId) => {
         })
 }
 
+export const postComment = (articleId, body) => {
+    return newsApi.post(`/articles/${articleId}/comments`, body)
+        .then((res) => {
+            return res.data
+        })
+}
+
+export const getUsers = () => {
+    return newsApi.get("/users")
+    .then((res) => {
+        return res.data
+    })
+} 
+
 export const getTopics = () => {
     return newsApi.get('/topics')
         .then((res) => {

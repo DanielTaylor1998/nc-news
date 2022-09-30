@@ -6,8 +6,14 @@ import { Home } from './components/Home';
 import { Nav } from './components/Nav';
 import { Users } from './components/Users';
 import { Article } from './components/Article'
+import { useContext } from 'react';
+import { UserContext } from './contexts/user';
+import { User } from './components/User';
 
 function App() {
+
+  const value = useContext(UserContext);
+
   return (
     <div className="App">
       <Header/>
@@ -18,6 +24,7 @@ function App() {
         <Route path="/Articles?topic" element={<Articles />}/>
         <Route path="/Articles/:article_id" element={<Article />}/>
         <Route path="/Users" element={<Users />}/>
+        <Route path="/User" element={<User />}/>
       </Routes>
     </div>
   );
