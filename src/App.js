@@ -10,6 +10,7 @@ import { useContext } from 'react';
 import { UserContext } from './contexts/user';
 import { User } from './components/User';
 import { Error } from './components/Error';
+import { Footer } from './components/Footer';
 
 function App() {
 
@@ -19,8 +20,8 @@ function App() {
     <div className="App">
       <Header />
       <Nav />
-      <div className="col"></div>
-        <Routes>
+      <div className="appcontent">
+        <Routes >
           <Route path="/" element={<Home />} />
           <Route path="/Articles" element={<Articles />} />
           <Route path="/Articles?topic" element={<Articles />} />
@@ -29,7 +30,8 @@ function App() {
           <Route path="/User" element={<User />} />
           <Route path="*" element={<Error />} />
         </Routes>
-      <div className="col"></div>
+      </div>
+      <Footer />
     </div>
   );
 }
