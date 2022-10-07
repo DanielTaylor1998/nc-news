@@ -2,17 +2,6 @@
     display: flex;
 }
 
-.col {
-    flex:1
-}
-
-.Content {
-    border-style: solid;
-    padding: 12px;
-    flex-grow: 3;
-    flex-basis: 2;
-}
-
 .topics {
     display: flex;
     flex-direction: row;
@@ -21,7 +10,6 @@
 
 .button {
     flex: 1;
-    background-color: #998DA0;
 }
 
 .buttonLink {

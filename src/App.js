@@ -9,6 +9,7 @@ import { Article } from './components/Article'
 import { useContext } from 'react';
 import { UserContext } from './contexts/user';
 import { User } from './components/User';
+import { Error } from './components/Error';
 
 function App() {
 
@@ -16,16 +17,19 @@ function App() {
 
   return (
     <div className="App">
-      <Header/>
+      <Header />
       <Nav />
-      <Routes>
-        <Route path="/" element={<Home />}/>
-        <Route path="/Articles" element={<Articles />}/>
-        <Route path="/Articles?topic" element={<Articles />}/>
-        <Route path="/Articles/:article_id" element={<Article />}/>
-        <Route path="/Users" element={<Users />}/>
-        <Route path="/User" element={<User />}/>
-      </Routes>
+      <div className="col"></div>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/Articles" element={<Articles />} />
+          <Route path="/Articles?topic" element={<Articles />} />
+          <Route path="/Articles/:article_id" element={<Article />} />
+          <Route path="/Users" element={<Users />} />
+          <Route path="/User" element={<User />} />
+          <Route path="*" element={<Error />} />
+        </Routes>
+      <div className="col"></div>
     </div>
   );
 }

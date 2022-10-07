@@ -4,7 +4,10 @@ export const Header = () => {
 
 
     return (
-        <header>Welcome to NC News !</header>
+        <div className="Header">
+            <h1 className="h1">NC NEWS</h1>
+        </div>
+        
     )
 
 }
