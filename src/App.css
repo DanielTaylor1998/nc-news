@@ -31,6 +31,7 @@
   background-color: #5C9EAD;
   width: 100%;
   height: 80px;
+  border-top: solid 2px black;
 }
 
 .Link {
