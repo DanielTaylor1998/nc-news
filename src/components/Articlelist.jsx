@@ -50,9 +50,10 @@ export const Articlelist = ({ topics }) => {
     }
 
     return (
-        <div>
+        <div className="articleList">
 
             <div className="topics">
+                <h2>Topics</h2>
                 {topics.map((topic) => {
                     return (
 
@@ -74,30 +75,32 @@ export const Articlelist = ({ topics }) => {
                     <h3 className="sortText">{params ? params.sort_by !== undefined ? params.sort_by === "comment_count" ? "Number of comments" : params.sort_by : "date" : "date"}</h3>
                     <h3 className="text">in {orderBy === "ASC" ? "descending" : "asecending"} order</h3>
                 </div>
-
-                <br />
                 <div className="buttonsList">
-                    <div className="sortbuttons">
-                        <button className="buttons" onClick={() => { sort("date") }}>Sort By Date</button>
-                        <button className="buttons" onClick={() => { sort("votes") }}>Sort By Votes</button>
-                        <button className="buttons" onClick={() => { sort("comment_count") }}>Sort By No. Comment</button>
-                    </div>
+                    <label className="sortbuttons">
+                        Sort By
+                        <select className="buttons">
+                            <option onClick={() => { sort("date") }}>date</option>
+                            <option onClick={() => { sort("votes") }}>votes</option>
+                            <option onClick={() => { sort("comment_count") }}>comments</option>
+                        </select>
+                    </label>
                     <button className="orderButton" onClick={() => { order(orderBy) }}>Order By:{orderBy}</button>
                 </div>
             </div>
 
+            <div className="articles">
+                {articles.map((article) => {
+                    return (
+                        <div key={article.article_id}>
+                            <div className="Article-Card" onClick={() => { navigate(`/Articles/${article.article_id}`) }}>
+                                <h2 className="title">{article.title}</h2>
 
-            {articles.map((article) => {
-                return (
-                    <div key={article.article_id}>
-                        <br />
-                        <div className="Article-Card" onClick={() => { navigate(`/Articles/${article.article_id}`) }}>
-                            <h1 className="title">{article.title}</h1>
+                            </div>
                         </div>
-                        <br />
-                    </div>
-                )
-            })}
+                    )
+                })}
+            </div>
+
         </div>
     )
 

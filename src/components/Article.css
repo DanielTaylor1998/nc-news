@@ -1,23 +1,48 @@
+.Content{
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
 .article {
     display: flex;
+    flex-direction: column;
+    margin: 10px;
 }
 
-.col {
-    flex:1
+.articleContent {
+    border-style: solid;
 }
 
-.Content {
-    flex: 2;
-    flex-grow: 2;
-    justify-content: center;
+.articleTitle{
+    margin-left: 10%;
 }
 
-@media screen and (max-width: 450px) {
-    .article {
-        font-size: 3.2vw;
-    }
 
-    .Content {
-        flex-grow: 12;
-    }
+.articleTopic{
+    padding: 10px;
+    width: fit-content;
+    border-left: 6px solid #5C9EAD;
+}
+
+.articleAuthor{
+    padding: 10px;
+    width: fit-content;
+    border-left: 6px solid #5C9EAD;
+}
+
+.titleText {
+    padding: 10px;
+    width: fit-content;
+    border-left: 6px solid #5C9EAD;
+}
+
+.articleText{
+    margin-top: 10px;
+    padding: 10px;
+    border-style: solid;
+    align-self: center;
+}
+
+.topic{
+    display: flex;
 }

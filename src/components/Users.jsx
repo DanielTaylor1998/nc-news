@@ -37,10 +37,10 @@ export const Users = () => {
                     return (
                         <div className="user-list" key={user.name}>
                             <div className="userCard">
-                                <h1>{user.username}</h1>
+                                <h1 className="username">{user.username}</h1>
                                 <img className="profile-pic" src={user.avatar_url} alt={"This is your profile pic"}/>
                                 <br />
-                                <button onClick={() => logIn(user)}>Log In !</button>
+                                <button className="LoginButton" onClick={() => logIn(user)}>Log In !</button>
                             </div>
                         </div>
 

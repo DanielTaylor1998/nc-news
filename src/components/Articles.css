@@ -2,12 +2,6 @@
     display: flex;
 }
 
-.Content {
-    border-style: solid;
-    padding: 12px;
-    width: 60%;
-}
-
 .topics {
     display: flex;
     flex-direction: row;

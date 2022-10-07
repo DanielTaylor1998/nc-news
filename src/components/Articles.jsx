@@ -24,7 +24,7 @@ export const Articles = () => {
     return (
         <div>
             <div className="List">
-                <div className="Content">
+                <div className="Articles">
                     <Articlelist topics={topics}/>
                 </div>
                 

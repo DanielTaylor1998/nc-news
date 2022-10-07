@@ -1,7 +1,20 @@
 .comment {
-    font-size: 1.2vw;
+    font-size: max(60%, 14px);
+    width: 20vw;
+    margin: 10px;
+    min-width: 200px;
 }
 .commentBody {
     padding: 10px;
     border-style: solid;
+    
+}
+
+
+.comments {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    border-style: solid;
+    justify-content: center;
 }

@@ -22,7 +22,7 @@ export const Comments = (article_id) => {
             })
             .catch((err) => {
                 setError(true)
-            }) 
+            })
     }, [comments, article_id.article_id])
 
 
@@ -50,19 +50,22 @@ export const Comments = (article_id) => {
             <Commentform article_id={article_id.article_id} />
             <h1>Comments</h1>
             {error ? <h3>There was an error fetching new comments.. Please try again later !</h3> : null}
-            {comments.map((comment) => {
-                return (
-                    <div className="comment" key={comment.comment_id}>
-                        <div className="commentBody">
-                            <p>{comment.body}</p>
-                            <h3>{comment.author}</h3>
-                            {loggedInUser.username === comment.author ? <button disabled={isDisabled} onClick={() => {del(comment.comment_id)}}>Delete !</button> : null}
+            <div className="comments">
+                {comments.map((comment) => {
+                    return (
+                        <div className="comment" key={comment.comment_id}>
+                            <div className="commentBody">
+                                <p>{comment.body}</p>
+                                <h3>{comment.author}</h3>
+                                {loggedInUser.username === comment.author ? <button disabled={isDisabled} onClick={() => { del(comment.comment_id) }}>Delete !</button> : null}
+                            </div>
+                            <br />
                         </div>
-                        <br />
-                    </div>
-                )
+                    )
 
-            })}
+                })}
+            </div>
+
         </div>
     )
 
