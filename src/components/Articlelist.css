@@ -1,6 +1,10 @@
 .topics {
+    display: flex;
+    flex-direction: row;
     border-style: solid;
     padding-left: 10px;
+    justify-content: space-between;
+    max-width: 100vw
 }
 
 .articleList{
@@ -45,6 +49,9 @@
 
 .button{
     margin: 5px;
+    border: solid 1px black;
+    border-radius: 0.4rem;
+    max-width: 50vw;
 }
 
 .listHeader {

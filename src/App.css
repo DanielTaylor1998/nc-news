@@ -1,7 +1,12 @@
 .App {
   display: flex;
   flex-direction: column;
+}
+.appcontent {
+  display: flex;
+  flex-direction: column;
   align-items: center;
+  min-height: 100vh;
 }
 
 .Header {
@@ -21,7 +26,15 @@
   margin-bottom: 10px;
 }
 
-.Link{
+.footer {
+  margin-top: 10px;
+  background-color: #5C9EAD;
+  width: 100%;
+  height: 80px;
+  border-top: solid 2px black;
+}
+
+.Link {
   border-left: 6px solid #5C9EAD;
   padding: 5px;
   margin-right: 12vw;
@@ -33,8 +46,8 @@
   margin-left: 12.3vw;
 }
 
-@media screen and (max-width: 450px){
+@media screen and (max-width: 450px) {
   * {
-      font-size: 3.4vw;
+    font-size: 3.4vw;
   }
 }
